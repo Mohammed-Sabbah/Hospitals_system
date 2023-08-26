@@ -52,7 +52,7 @@
             <nav class="scrollspy_menu">
                 <ul class="navbar-nav">
                     <li class="nav-item active underline_header_titles">
-                        <a class="nav-link" href="index.html">الرئيسية </a>
+                        <a class="nav-link" href="index.html"> الرئيسية </a>
                     </li>
                     <li class="nav-item">
                         <div class="cs-dropdown">
@@ -196,7 +196,7 @@
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
                         <li class="nav-item active underline_header_titles">
-                            <a class="nav-link" href="index.html">الرئيسية </a>
+                            <a class="nav-link" href="index.html"> <?php echo e(__('messages.Home')); ?> </a>
                         </li>
                         <li class="nav-item">
                             <div class="cs-dropdown">
@@ -256,7 +256,7 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="language">
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="<?php echo e(route('langConverter' , 'ar')); ?>">
                                             <span>
                                                 <svg id="svgexport-10_15_" data-name="svgexport-10 (15)"
                                                     xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -367,7 +367,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="<?php echo e(route('langConverter' , 'en')); ?>">
                                             <span>
                                                 <svg id="svgexport-10_16_" data-name="svgexport-10 (16)"
                                                     xmlns="http://www.w3.org/2000/svg" width="20" height="20"

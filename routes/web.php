@@ -9,8 +9,11 @@ use App\Http\Controllers\MajorController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RolePermissionsController;
+use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\WelcomeController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +61,26 @@ Route::prefix('admin')->middleware('guest:admin')->group(function () {
 
 
 Route::get('/' , [FrontEndController::class , 'home'])->name('front.home');
+
+
+Route::get('auth/google' , [SocialiteController::class , 'redirectToGoogle']);
+Route::get('auth/google/callback' , [SocialiteController::class , 'handelGoogleCallback']);
+
+Route::get('auth/facebook' , [SocialiteController::class , 'redirectToFacebook']);
+Route::get('auth/facebook/callback' , [SocialiteController::class , 'handelFacebookCallback']);
+
+
+Route::post('user_login' , [SocialiteController::class , 'submitLogin'])->name('user.login');
+Route::get('user_login', function(){
+    return view('user.auth.login');
+});
+
+////////////////////////////////// Languages////////////////////////////////////
+
+Route::get('/langConverter/{locale}' , function($locale){
+    if(in_array($locale , ['ar','en','tr'])){
+        Session()->put('locale' , $locale);
+    }
+
+    return redirect()->back();
+})->name('langConverter');
